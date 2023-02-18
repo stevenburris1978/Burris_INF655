@@ -22,6 +22,11 @@ export default function TodoList({
 
 function Task({ todo, onChange, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
+  const handleChange = () => { 
+    
+    console.log('The checkbox was toggled'); 
+    document.write("Todo Completed");
+  }; 
   let todoContent;
   if (isEditing) {
     todoContent = (
@@ -57,8 +62,12 @@ function Task({ todo, onChange, onDelete }) {
         onChange={e => {
           onChange({
             ...todo,
-            done: e.target.checked
-          });
+            done: e.target.checked,
+            handleChange
+          }
+
+          
+          );
         }}
       />
       {todoContent}
